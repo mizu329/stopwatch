@@ -6,10 +6,17 @@
   margin: 0 auto;
   width: fit-content;
 }
+
 .display {
   background-color: black;
   color: white;
   text-align: right;
   padding-right: 10px;
   margin-bottom: 10px;
+}
+
+.log {
+  margin: 0 auto;
+  width: fit-content;
+  margin-top: 25px;
 }

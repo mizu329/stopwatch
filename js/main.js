@@ -2,15 +2,24 @@ alert("これはストップウォッチです");
 
 function addMessage(message) {
   let messageElm = document.createElement("div");
-  messageElm.innerText = message;
+  let now = new Date();
+  messageElm.innerText =
+    now.getHours() +
+    "時" +
+    now.getMinutes() +
+    "分" +
+    now.getSeconds() +
+    "秒" +
+    "　" +
+    message;
   logElm.appendChild(messageElm);
 }
 
 // 変数定義
 let displayElm = document.getElementsByClassName("display")[0];
 let logElm = document.querySelector(".log");
-let seconds = 0;
 let timer = null;
+let seconds = 0;
 
 let startButton = document.getElementsByClassName("startButton")[0];
 let stopButton = document.getElementsByClassName("stopButton")[0];
@@ -19,14 +28,15 @@ let stopButton = document.getElementsByClassName("stopButton")[0];
 startButton.addEventListener("click", function () {
   if (timer === null) {
     console.log("開始");
+    seconds = 0;
 
     timer = setInterval(function () {
       seconds++;
-      displayElm.innerText = "経過時間: " + seconds + "秒";
+      displayElm.innerText = `${seconds}秒`;
       console.log("経過時間: " + seconds + "秒");
     }, 1000);
 
-    addMessage("開始");
+    addMessage(`開始`);
   }
 });
 
@@ -37,6 +47,6 @@ stopButton.addEventListener("click", function () {
     clearInterval(timer);
     timer = null;
 
-    addMessage("終了");
+    addMessage(`終了 + 経過時間: ${seconds}秒`);
   }
 });
