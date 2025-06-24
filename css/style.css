@@ -1,6 +1,10 @@
 @font-face {
-  font-family: "DS-DIGII";
-  src: url("/font/DS-DIGII.TTF") format("truetype");
+  font-family: "DS-Digital";
+  src: url("../font/DS-Digital-Italic.woff2") format("woff2"),
+    url("../font/DS-Digital-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
 }
 
 .title {
@@ -22,7 +26,7 @@
 
 .number {
   font-size: 50px;
-  font-family: "DS-DIGII";
+  font-family: "DS-Digital";
 }
 
 .log {
