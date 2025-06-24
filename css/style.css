@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "DS-DIGII";
+  src: url("/font/DS-DIGII.TTF") format("truetype");
+}
+
 .title {
   text-align: center;
 }
@@ -13,6 +18,11 @@
   text-align: right;
   padding-right: 10px;
   margin-bottom: 10px;
+}
+
+.number {
+  font-size: 50px;
+  font-family: "DS-DIGII";
 }
 
 .log {

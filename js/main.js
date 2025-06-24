@@ -16,7 +16,7 @@ function addMessage(message) {
 }
 
 // 変数定義
-let displayElm = document.getElementsByClassName("display")[0];
+let displayElm = document.getElementsByClassName("number")[0];
 let logElm = document.querySelector(".log");
 let timer = null;
 let seconds = 0;
@@ -32,7 +32,7 @@ startButton.addEventListener("click", function () {
 
     timer = setInterval(function () {
       seconds++;
-      displayElm.innerText = `${seconds}秒`;
+      displayElm.innerText = `${seconds}`;
       console.log("経過時間: " + seconds + "秒");
     }, 1000);
 
