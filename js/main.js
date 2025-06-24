@@ -1,31 +1,42 @@
 alert("これはストップウォッチです");
 
+function addMessage(message) {
+  let messageElm = document.createElement("div");
+  messageElm.innerText = message;
+  logElm.appendChild(messageElm);
+}
+
+// 変数定義
 let displayElm = document.getElementsByClassName("display")[0];
+let logElm = document.querySelector(".log");
+let seconds = 0;
 let timer = null;
 
 let startButton = document.getElementsByClassName("startButton")[0];
+let stopButton = document.getElementsByClassName("stopButton")[0];
 
+// スタートボタン
 startButton.addEventListener("click", function () {
-  console.log("スタートボタンがクリックされました");
+  if (timer === null) {
+    console.log("開始");
 
-  let seconds = 0;
+    timer = setInterval(function () {
+      seconds++;
+      displayElm.innerText = "経過時間: " + seconds + "秒";
+      console.log("経過時間: " + seconds + "秒");
+    }, 1000);
 
-  //   setInterval(function () {
-  //     seconds++;
-  //     displayElm.innerText = "経過時間: " + seconds + "秒";
-  //     console.log("経過時間: " + seconds + "秒");
-  //   }, 1000);
+    addMessage("開始");
+  }
+});
 
-  timer = setInterval(function () {
-    seconds++;
-    displayElm.innerText = "経過時間: " + seconds + "秒";
-    console.log("経過時間: " + seconds + "秒");
-  }, 1000);
-
-  let stopButton = document.getElementsByClassName("stopButton")[0];
-  stopButton.addEventListener("click", function () {
-    console.log("ストップボタンがクリックされました");
+// ストップボタン
+stopButton.addEventListener("click", function () {
+  if (timer !== null) {
+    console.log("終了" + timer);
     clearInterval(timer);
-    timer;
-  });
+    timer = null;
+
+    addMessage("終了");
+  }
 });
